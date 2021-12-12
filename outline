@@ -1,0 +1,12 @@
+#Outline
+This is where I want to lay out an outline of how the program should work.  This page may contain ramblings of pseudo-code, bullshit attempts at jargon, and inside jokes to myself. 
+
+##The Main Task
+Track child's sneezes from 01/01/22 - 31/12/22
+
+Pseudo-code most basic steps:
+
+1. Confirm & capture date & time
+2. Data input 
+3. Parse and export
+4. Visualize
