@@ -5,8 +5,8 @@ event_time = datetime.datetime.now().strftime("%c")
 # total number of sneezes combined.  This will be the final total counted on December 31, 2022.
 total_sneeze_count = 0
 #this is the amount of sneezes per event. It is not uncommon for my child to sneeze multiple times in an event.
-# His record is 4 sneezes in one sneeze event.
-sneeze_event_count = 0
+# His record is 4 sneezes in one sneeze event.  It is by default one, because I won't need to record a sneeze if there isn't one
+sneeze_event_count = 1
 # a siimple variable that I can pass through if necessary
 sneezes = 1
 
