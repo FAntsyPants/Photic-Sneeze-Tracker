@@ -1,0 +1,26 @@
+# total number of sneezes combined.  This will be the final total counted on December 31, 2022.
+total_sneeze_count = 0
+sneeze_event_count = 0
+sneezes = 0
+
+#these parameters need to be determined for each sneeze event
+sneeze_event = {
+    "Photic" :,
+    "Date & Time":,
+    "Number of sneezes":,
+    "Sunlight or Artificial":,
+    "Environmment":,
+    "Light Source",
+
+
+}
+
+
+def sneeze_event():
+
+#for each sneeze event, add the number of sneezes to the total count.
+def add_sneezes_to_total(sneezes):
+    print(total_sneeze_count + i)
+#get nmumber of sneezes from user
+
+
