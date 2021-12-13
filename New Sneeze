@@ -10,7 +10,7 @@ total_sneeze_count = 0
 sneeze_event_parameters = {
     "photic": True,
     "dateAndTime": event_time,
-    "sneezeCount": 1,
+    "sneezeCount": 0,
     # "Sunlight or Artificial":,
     "environment": ["Outside", "Inside"],
 
