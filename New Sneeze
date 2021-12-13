@@ -1,0 +1,77 @@
+import datetime
+event_time = datetime.datetime.now().strftime("%c")
+
+
+# total number of sneezes combined.  This will be the final total counted on December 31, 2022.
+total_sneeze_count = 0
+
+# a siimple variable that I can pass through if necessary
+# these parameters need to be determined for each sneeze event
+sneeze_event_parameters = {
+    "photic": True,
+    "dateAndTime": event_time,
+    "sneezeCount": 1,
+    # "Sunlight or Artificial":,
+    "environment": ["Outside", "Inside"],
+
+    # "Light Source",
+}
+
+def new_sneeze():
+    #this is the amount of sneezes per event. It is not uncommon for my child to sneeze multiple times in an event.
+    # His record is 4 sneezes in one sneeze event.
+
+
+
+    def get_photic_boolean():
+        photic_inquiry = input("Was the sneeze Photic?\n Y/N: ")
+        if photic_inquiry == "N":
+            sneeze_event_parameters["photic"] = False
+            answer = sneeze_event_parameters["photic"]
+        elif photic_inquiry == "Y":
+            return
+        #print(f"Photic sneeze is {answer}")
+
+    #get nmumber of sneezes from user
+
+
+    def get_sneezes(sneezes):
+        how_many = input(int(sneeze_event_parameters["sneezeCount"]))
+        sneeze_event_total = (how_many + sneezes)
+        return sneeze_event_total
+    '''
+    def get_environment():
+        location_query = input("Were you:\n1. Inside\n2. Outside")
+        if location_query == 1:
+            if sneeze_event_parameters["Environmment"] == "Inside":
+    '''
+
+
+
+    #this is the function that will run whenever I need to log a sneeze event.
+    # It captures the parameters needed by getting the user's input
+    def user_input():
+        get_photic_boolean()
+        return int(input("How many sneezes occured during this event?\n"))
+
+
+    #for each sneeze event, add the number of sneezes to the total count.
+    #def add_sneezes_to_total():
+
+
+    def final_event_details():
+        #add_sneezes_to_total(sneezes)
+        sneeze_event_count = sneeze_event_parameters["sneezeCount"]
+        return sneeze_event_count
+
+
+    sneeze_event_count = user_input()
+
+
+    return sneeze_event_count
+
+
+new_event = new_sneeze()
+
+total_event_sneezes = (new_event + sneeze_event_parameters["sneezeCount"])
+print(f"Cameron sneezed {total_event_sneezes} times this event.")
