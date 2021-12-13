@@ -1,26 +1,59 @@
+import datetime
+event_time = datetime.datetime.now().strftime("%c")
+
+
 # total number of sneezes combined.  This will be the final total counted on December 31, 2022.
 total_sneeze_count = 0
+#this is the amount of sneezes per event. It is not uncommon for my child to sneeze multiple times in an event.
+# His record is 4 sneezes in one sneeze event.
 sneeze_event_count = 0
-sneezes = 0
+# a siimple variable that I can pass through if necessary
+sneezes = 1
+
 
 #these parameters need to be determined for each sneeze event
 sneeze_event = {
-    "Photic" :,
-    "Date & Time":,
-    "Number of sneezes":,
-    "Sunlight or Artificial":,
-    "Environmment":,
-    "Light Source",
-
-
+    "Photic" : [True],
+    "Date & Time": event_time,
+    "Sneeze count": sneezes,
+    #"Sunlight or Artificial":,
+    #"Environmment":,
+    #"Light Source", """
 }
 
+def get_photic_boolean():
+    photic_inquiry = input("Was the sneeze Photic?\n Y/N: ")
+    if photic_inquiry == "N":
+        sneeze_event["Photic"] = False
+        answer = sneeze_event["Photic"]
+    #print(f"Photic sneeze is {answer}")
 
-def sneeze_event():
+def get_sneezes():
+    one_or_more = input("Did this event involve multiple sneezes in a row? \n Y/N: ")
+    if one_or_more == "Y":
+        get_count = input("How many sneezes occured?\n ")
+        sneeze_event["Sneeze count"] = get_count
+    else:
+        return sneezes
+
+
+
+#this is the function that will run whenever I need to log a sneeze event.
+# It captures the parameters needed by getting the user's input
+def user_input():
+    get_photic_boolean()
+    get_sneezes()
+
 
 #for each sneeze event, add the number of sneezes to the total count.
 def add_sneezes_to_total(sneezes):
     print(total_sneeze_count + i)
 #get nmumber of sneezes from user
 
+def final_event_details():
+    print(sneeze_event)
 
+
+
+user_input()
+final_event_details()
