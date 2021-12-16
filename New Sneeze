@@ -1,32 +1,38 @@
 import pyinputplus as pyip
 import datetime
 
-
+#parameters of each sneeze event
 parameters = {
     "photic": True,
     #"dateAndTime": event_time,
     "sneezeCount": 0,
-    #"Sunlight or Artificial": "Sunlight" "artificial light",
+    "Natty or Sunny": "Sunlight" "artificial light",
     #"environment": ["Outside", "Inside"],
 }
 
+#function to ask questions to determine parameters
+## first question asks whether sneeze was Photic
 def new_sneeze():
     question = pyip.inputYesNo("Was the seeze due to a change in light conditions / focus?\n")
     if question == "yes":
         return True
     elif question == "no":
         return False
-
+        
+#ask how many sneezes occures
 def get_sneezes():
     sneeze_count = pyip.inputInt("How many sneezes occured?")
     return sneeze_count
-
+    
+#ask if natural light or sunlight
 def get_natty():
-    natty_or_sunny = pyip.inputMenu(["Sunlight","Artificial light"])
+    natty_or_sunny = pyip.inputMenu(["Sunlight","Artificial light"], numbered=True)
+    return natty_or_sunny
 
 
 parameters["photic"] = new_sneeze()
 print(parameters["photic"])
 parameters["sneezeCount"] = get_sneezes()
 print(parameters["sneezeCount"])
-parameters[""]
+parameters["Natty or Sunny"] = get_natty()
+print(parameters["Natty or Sunny"])
