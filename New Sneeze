@@ -1,38 +1,49 @@
 import pyinputplus as pyip
-import datetime
 
-#parameters of each sneeze event
+# parameters of each sneeze event
+
 parameters = {
-    "photic": True,
-    #"dateAndTime": event_time,
-    "sneezeCount": 0,
-    "Natty or Sunny": "Sunlight" "artificial light",
-    #"environment": ["Outside", "Inside"],
+
 }
 
-#function to ask questions to determine parameters
+# function to ask questions to determine parameters
 ## first question asks whether sneeze was Photic
+
 def new_sneeze():
-    question = pyip.inputYesNo("Was the seeze due to a change in light conditions / focus?\n")
+    photic_bool()
+    sneeze_count()
+    if get_environment() == "Inside":
+        which_light()
+    else:
+        transition()
+    print(parameters)
+def photic_bool():
+    question = pyip.inputYesNo("Was the seeze due to a change in light conditions / focus?\nY or N: ")
     if question == "yes":
-        return True
-    elif question == "no":
-        return False
-        
-#ask how many sneezes occures
-def get_sneezes():
-    sneeze_count = pyip.inputInt("How many sneezes occured?")
-    return sneeze_count
-    
-#ask if natural light or sunlight
-def get_natty():
-    natty_or_sunny = pyip.inputMenu(["Sunlight","Artificial light"], numbered=True)
-    return natty_or_sunny
+        parameters["photic"] = True
+        return question
+    else:
+        parameters["photic"] = False
 
+def sneeze_count():
+    question = pyip.inputInt(prompt="How many sneezes occured?\n")
+    parameters["sneezeCount"] = question
 
-parameters["photic"] = new_sneeze()
-print(parameters["photic"])
-parameters["sneezeCount"] = get_sneezes()
-print(parameters["sneezeCount"])
-parameters["Natty or Sunny"] = get_natty()
-print(parameters["Natty or Sunny"])
+def get_environment():
+    question = pyip.inputMenu(["Inside","Outside"],numbered=True, prompt="Where did the sneeze occur?\n",)
+    parameters["in_or_out"] = question
+    return question
+
+def which_light():
+    question = pyip.inputStr(prompt="Which light was turned on?\n")
+    parameters["which light"] = question
+
+def transition():
+    initiate = pyip.inputYesNo(prompt="Was this transitioning from inside to outside?\nY or N: ")
+    if initiate == "yes":
+        parameters["transition"] = True
+    else:
+        return
+
+new_sneeze()
+
