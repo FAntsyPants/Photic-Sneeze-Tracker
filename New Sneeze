@@ -1,13 +1,7 @@
 import pyinputplus as pyip
 
-# parameters of each sneeze event
-
 parameters = {
-
 }
-
-# function to ask questions to determine parameters
-## first question asks whether sneeze was Photic
 
 def new_sneeze():
     photic_bool()
@@ -23,6 +17,7 @@ def photic_bool():
         parameters["photic"] = True
         return question
     else:
+        parameters["inhalant/irritant"] = True
         parameters["photic"] = False
 
 def sneeze_count():
